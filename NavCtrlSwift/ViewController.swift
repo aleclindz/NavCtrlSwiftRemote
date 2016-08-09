@@ -12,10 +12,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var companies: [String]!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         companies = ["Apple mobile devices", "Samsung mobile devices"]
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Edit",
+            style: .Plain,
+            target: self,
+            action: "editButtonClicked"
+        )
+
+        self.title = "Mobile Device Makers"
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +42,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         cell.textLabel!.text = companies[indexPath.row]
         return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            companies.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    func editButtonClicked() {
+        if self.tableView.editing {
+            self.tableView.editing = false
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "editButtonClicked")
+        } else {
+            self.tableView.editing = true
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "editButtonClicked")
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let title = companies[indexPath.row]
+        
+        let productVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProductViewController") as? ProductViewController
+        
+        productVC!.title = title
+
+        self.navigationController?.pushViewController(productVC!, animated: true)
     }
     
 }
