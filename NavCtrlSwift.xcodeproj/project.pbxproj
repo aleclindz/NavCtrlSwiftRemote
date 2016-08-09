@@ -13,6 +13,38 @@
 		0284DFC11D5A270600C26562 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFC01D5A270600C26562 /* Assets.xcassets */; };
 		0284DFC41D5A270600C26562 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFC21D5A270600C26562 /* LaunchScreen.storyboard */; };
 		0284DFCC1D5A522300C26562 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284DFCB1D5A522300C26562 /* ProductViewController.swift */; };
+		0284E0021D5A7F9000C26562 /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF11D5A7F9000C26562 /* Icon */; };
+		0284E0031D5A7F9000C26562 /* img-companyLogo_Apple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF21D5A7F9000C26562 /* img-companyLogo_Apple.pdf */; };
+		0284E0041D5A7F9000C26562 /* img-companyLogo_Apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF31D5A7F9000C26562 /* img-companyLogo_Apple.png */; };
+		0284E0051D5A7F9000C26562 /* img-companyLogo_Apple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF41D5A7F9000C26562 /* img-companyLogo_Apple@2x.png */; };
+		0284E0061D5A7F9000C26562 /* img-companyLogo_Apple@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF51D5A7F9000C26562 /* img-companyLogo_Apple@3x.png */; };
+		0284E0071D5A7F9000C26562 /* img-companyLogo_Google.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF61D5A7F9000C26562 /* img-companyLogo_Google.pdf */; };
+		0284E0081D5A7F9000C26562 /* img-companyLogo_Google.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF71D5A7F9000C26562 /* img-companyLogo_Google.png */; };
+		0284E0091D5A7F9000C26562 /* img-companyLogo_Google@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF81D5A7F9000C26562 /* img-companyLogo_Google@2x.png */; };
+		0284E00A1D5A7F9000C26562 /* img-companyLogo_Google@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFF91D5A7F9000C26562 /* img-companyLogo_Google@3x.png */; };
+		0284E00B1D5A7F9000C26562 /* img-companyLogo_Tesla.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFFA1D5A7F9000C26562 /* img-companyLogo_Tesla.pdf */; };
+		0284E00C1D5A7F9000C26562 /* img-companyLogo_Tesla.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFFB1D5A7F9000C26562 /* img-companyLogo_Tesla.png */; };
+		0284E00D1D5A7F9000C26562 /* img-companyLogo_Tesla@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFFC1D5A7F9000C26562 /* img-companyLogo_Tesla@2x.png */; };
+		0284E00E1D5A7F9000C26562 /* img-companyLogo_Tesla@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFFD1D5A7F9000C26562 /* img-companyLogo_Tesla@3x.png */; };
+		0284E00F1D5A7F9000C26562 /* img-companyLogo_Twitter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFFE1D5A7F9000C26562 /* img-companyLogo_Twitter.pdf */; };
+		0284E0101D5A7F9000C26562 /* img-companyLogo_Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFFF1D5A7F9000C26562 /* img-companyLogo_Twitter.png */; };
+		0284E0111D5A7F9000C26562 /* img-companyLogo_Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0001D5A7F9000C26562 /* img-companyLogo_Twitter@2x.png */; };
+		0284E0121D5A7F9000C26562 /* img-companyLogo_Twitter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0011D5A7F9000C26562 /* img-companyLogo_Twitter@3x.png */; };
+		0284E0421D5A8D3500C26562 /* img-Product-01@1x.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0331D5A8D3500C26562 /* img-Product-01@1x.pdf */; };
+		0284E0431D5A8D3500C26562 /* img-Product-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0341D5A8D3500C26562 /* img-Product-01@2x.png */; };
+		0284E0441D5A8D3500C26562 /* img-Product-01@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0351D5A8D3500C26562 /* img-Product-01@3x.png */; };
+		0284E0451D5A8D3500C26562 /* img-Product-AppleiPad.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0361D5A8D3500C26562 /* img-Product-AppleiPad.jpeg */; };
+		0284E0461D5A8D3500C26562 /* img-Product-AppleiPod Touch.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0371D5A8D3500C26562 /* img-Product-AppleiPod Touch.png */; };
+		0284E0471D5A8D3500C26562 /* img-Product-AppleMac.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0381D5A8D3500C26562 /* img-Product-AppleMac.png */; };
+		0284E0481D5A8D3500C26562 /* img-Product-GoogleDocs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0391D5A8D3500C26562 /* img-Product-GoogleDocs.jpg */; };
+		0284E0491D5A8D3500C26562 /* img-Product-GoogleGmail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E03A1D5A8D3500C26562 /* img-Product-GoogleGmail.png */; };
+		0284E04A1D5A8D3500C26562 /* img-Product-GoogleSheets.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E03B1D5A8D3500C26562 /* img-Product-GoogleSheets.png */; };
+		0284E04B1D5A8D3500C26562 /* img-Product-TeslaModel 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0284E03C1D5A8D3500C26562 /* img-Product-TeslaModel 3.jpg */; };
+		0284E04C1D5A8D3500C26562 /* img-Product-TeslaModel S.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0284E03D1D5A8D3500C26562 /* img-Product-TeslaModel S.jpg */; };
+		0284E04D1D5A8D3500C26562 /* img-Product-TeslaModel X.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0284E03E1D5A8D3500C26562 /* img-Product-TeslaModel X.jpg */; };
+		0284E04E1D5A8D3500C26562 /* img-Product-TwitterCrashlytics.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E03F1D5A8D3500C26562 /* img-Product-TwitterCrashlytics.png */; };
+		0284E04F1D5A8D3500C26562 /* img-Product-TwitterMoments.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0401D5A8D3500C26562 /* img-Product-TwitterMoments.png */; };
+		0284E0501D5A8D3500C26562 /* img-Product-TwitterPeriscope.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0411D5A8D3500C26562 /* img-Product-TwitterPeriscope.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +56,38 @@
 		0284DFC31D5A270600C26562 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0284DFC51D5A270600C26562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0284DFCB1D5A522300C26562 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		0284DFF11D5A7F9000C26562 /* Icon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Icon"; sourceTree = "<group>"; };
+		0284DFF21D5A7F9000C26562 /* img-companyLogo_Apple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-companyLogo_Apple.pdf"; sourceTree = "<group>"; };
+		0284DFF31D5A7F9000C26562 /* img-companyLogo_Apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Apple.png"; sourceTree = "<group>"; };
+		0284DFF41D5A7F9000C26562 /* img-companyLogo_Apple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Apple@2x.png"; sourceTree = "<group>"; };
+		0284DFF51D5A7F9000C26562 /* img-companyLogo_Apple@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Apple@3x.png"; sourceTree = "<group>"; };
+		0284DFF61D5A7F9000C26562 /* img-companyLogo_Google.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-companyLogo_Google.pdf"; sourceTree = "<group>"; };
+		0284DFF71D5A7F9000C26562 /* img-companyLogo_Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Google.png"; sourceTree = "<group>"; };
+		0284DFF81D5A7F9000C26562 /* img-companyLogo_Google@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Google@2x.png"; sourceTree = "<group>"; };
+		0284DFF91D5A7F9000C26562 /* img-companyLogo_Google@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Google@3x.png"; sourceTree = "<group>"; };
+		0284DFFA1D5A7F9000C26562 /* img-companyLogo_Tesla.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-companyLogo_Tesla.pdf"; sourceTree = "<group>"; };
+		0284DFFB1D5A7F9000C26562 /* img-companyLogo_Tesla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Tesla.png"; sourceTree = "<group>"; };
+		0284DFFC1D5A7F9000C26562 /* img-companyLogo_Tesla@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Tesla@2x.png"; sourceTree = "<group>"; };
+		0284DFFD1D5A7F9000C26562 /* img-companyLogo_Tesla@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Tesla@3x.png"; sourceTree = "<group>"; };
+		0284DFFE1D5A7F9000C26562 /* img-companyLogo_Twitter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-companyLogo_Twitter.pdf"; sourceTree = "<group>"; };
+		0284DFFF1D5A7F9000C26562 /* img-companyLogo_Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Twitter.png"; sourceTree = "<group>"; };
+		0284E0001D5A7F9000C26562 /* img-companyLogo_Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Twitter@2x.png"; sourceTree = "<group>"; };
+		0284E0011D5A7F9000C26562 /* img-companyLogo_Twitter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-companyLogo_Twitter@3x.png"; sourceTree = "<group>"; };
+		0284E0331D5A8D3500C26562 /* img-Product-01@1x.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "img-Product-01@1x.pdf"; sourceTree = "<group>"; };
+		0284E0341D5A8D3500C26562 /* img-Product-01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-01@2x.png"; sourceTree = "<group>"; };
+		0284E0351D5A8D3500C26562 /* img-Product-01@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-01@3x.png"; sourceTree = "<group>"; };
+		0284E0361D5A8D3500C26562 /* img-Product-AppleiPad.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "img-Product-AppleiPad.jpeg"; sourceTree = "<group>"; };
+		0284E0371D5A8D3500C26562 /* img-Product-AppleiPod Touch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-AppleiPod Touch.png"; sourceTree = "<group>"; };
+		0284E0381D5A8D3500C26562 /* img-Product-AppleMac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-AppleMac.png"; sourceTree = "<group>"; };
+		0284E0391D5A8D3500C26562 /* img-Product-GoogleDocs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "img-Product-GoogleDocs.jpg"; sourceTree = "<group>"; };
+		0284E03A1D5A8D3500C26562 /* img-Product-GoogleGmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-GoogleGmail.png"; sourceTree = "<group>"; };
+		0284E03B1D5A8D3500C26562 /* img-Product-GoogleSheets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-GoogleSheets.png"; sourceTree = "<group>"; };
+		0284E03C1D5A8D3500C26562 /* img-Product-TeslaModel 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "img-Product-TeslaModel 3.jpg"; sourceTree = "<group>"; };
+		0284E03D1D5A8D3500C26562 /* img-Product-TeslaModel S.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "img-Product-TeslaModel S.jpg"; sourceTree = "<group>"; };
+		0284E03E1D5A8D3500C26562 /* img-Product-TeslaModel X.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "img-Product-TeslaModel X.jpg"; sourceTree = "<group>"; };
+		0284E03F1D5A8D3500C26562 /* img-Product-TwitterCrashlytics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-TwitterCrashlytics.png"; sourceTree = "<group>"; };
+		0284E0401D5A8D3500C26562 /* img-Product-TwitterMoments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-TwitterMoments.png"; sourceTree = "<group>"; };
+		0284E0411D5A8D3500C26562 /* img-Product-TwitterPeriscope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-TwitterPeriscope.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +125,58 @@
 				0284DFCB1D5A522300C26562 /* ProductViewController.swift */,
 				0284DFBD1D5A270600C26562 /* Main.storyboard */,
 				0284DFC01D5A270600C26562 /* Assets.xcassets */,
+				0284E0321D5A8D3500C26562 /* Product Images */,
+				0284DFF01D5A7F9000C26562 /* Company Logos */,
 				0284DFC21D5A270600C26562 /* LaunchScreen.storyboard */,
 				0284DFC51D5A270600C26562 /* Info.plist */,
 			);
 			path = NavCtrlSwift;
+			sourceTree = "<group>";
+		};
+		0284DFF01D5A7F9000C26562 /* Company Logos */ = {
+			isa = PBXGroup;
+			children = (
+				0284DFF11D5A7F9000C26562 /* Icon */,
+				0284DFF21D5A7F9000C26562 /* img-companyLogo_Apple.pdf */,
+				0284DFF31D5A7F9000C26562 /* img-companyLogo_Apple.png */,
+				0284DFF41D5A7F9000C26562 /* img-companyLogo_Apple@2x.png */,
+				0284DFF51D5A7F9000C26562 /* img-companyLogo_Apple@3x.png */,
+				0284DFF61D5A7F9000C26562 /* img-companyLogo_Google.pdf */,
+				0284DFF71D5A7F9000C26562 /* img-companyLogo_Google.png */,
+				0284DFF81D5A7F9000C26562 /* img-companyLogo_Google@2x.png */,
+				0284DFF91D5A7F9000C26562 /* img-companyLogo_Google@3x.png */,
+				0284DFFA1D5A7F9000C26562 /* img-companyLogo_Tesla.pdf */,
+				0284DFFB1D5A7F9000C26562 /* img-companyLogo_Tesla.png */,
+				0284DFFC1D5A7F9000C26562 /* img-companyLogo_Tesla@2x.png */,
+				0284DFFD1D5A7F9000C26562 /* img-companyLogo_Tesla@3x.png */,
+				0284DFFE1D5A7F9000C26562 /* img-companyLogo_Twitter.pdf */,
+				0284DFFF1D5A7F9000C26562 /* img-companyLogo_Twitter.png */,
+				0284E0001D5A7F9000C26562 /* img-companyLogo_Twitter@2x.png */,
+				0284E0011D5A7F9000C26562 /* img-companyLogo_Twitter@3x.png */,
+			);
+			path = "Company Logos";
+			sourceTree = "<group>";
+		};
+		0284E0321D5A8D3500C26562 /* Product Images */ = {
+			isa = PBXGroup;
+			children = (
+				0284E0331D5A8D3500C26562 /* img-Product-01@1x.pdf */,
+				0284E0341D5A8D3500C26562 /* img-Product-01@2x.png */,
+				0284E0351D5A8D3500C26562 /* img-Product-01@3x.png */,
+				0284E0361D5A8D3500C26562 /* img-Product-AppleiPad.jpeg */,
+				0284E0371D5A8D3500C26562 /* img-Product-AppleiPod Touch.png */,
+				0284E0381D5A8D3500C26562 /* img-Product-AppleMac.png */,
+				0284E0391D5A8D3500C26562 /* img-Product-GoogleDocs.jpg */,
+				0284E03A1D5A8D3500C26562 /* img-Product-GoogleGmail.png */,
+				0284E03B1D5A8D3500C26562 /* img-Product-GoogleSheets.png */,
+				0284E03C1D5A8D3500C26562 /* img-Product-TeslaModel 3.jpg */,
+				0284E03D1D5A8D3500C26562 /* img-Product-TeslaModel S.jpg */,
+				0284E03E1D5A8D3500C26562 /* img-Product-TeslaModel X.jpg */,
+				0284E03F1D5A8D3500C26562 /* img-Product-TwitterCrashlytics.png */,
+				0284E0401D5A8D3500C26562 /* img-Product-TwitterMoments.png */,
+				0284E0411D5A8D3500C26562 /* img-Product-TwitterPeriscope.png */,
+			);
+			path = "Product Images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +238,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				0284DFC41D5A270600C26562 /* LaunchScreen.storyboard in Resources */,
+				0284E04C1D5A8D3500C26562 /* img-Product-TeslaModel S.jpg in Resources */,
+				0284E0111D5A7F9000C26562 /* img-companyLogo_Twitter@2x.png in Resources */,
+				0284E00A1D5A7F9000C26562 /* img-companyLogo_Google@3x.png in Resources */,
+				0284E0501D5A8D3500C26562 /* img-Product-TwitterPeriscope.png in Resources */,
 				0284DFC11D5A270600C26562 /* Assets.xcassets in Resources */,
+				0284E04D1D5A8D3500C26562 /* img-Product-TeslaModel X.jpg in Resources */,
+				0284E04B1D5A8D3500C26562 /* img-Product-TeslaModel 3.jpg in Resources */,
+				0284E0091D5A7F9000C26562 /* img-companyLogo_Google@2x.png in Resources */,
+				0284E00E1D5A7F9000C26562 /* img-companyLogo_Tesla@3x.png in Resources */,
+				0284E0071D5A7F9000C26562 /* img-companyLogo_Google.pdf in Resources */,
+				0284E04E1D5A8D3500C26562 /* img-Product-TwitterCrashlytics.png in Resources */,
+				0284E04A1D5A8D3500C26562 /* img-Product-GoogleSheets.png in Resources */,
+				0284E0431D5A8D3500C26562 /* img-Product-01@2x.png in Resources */,
+				0284E0081D5A7F9000C26562 /* img-companyLogo_Google.png in Resources */,
+				0284E0121D5A7F9000C26562 /* img-companyLogo_Twitter@3x.png in Resources */,
+				0284E0421D5A8D3500C26562 /* img-Product-01@1x.pdf in Resources */,
+				0284E00D1D5A7F9000C26562 /* img-companyLogo_Tesla@2x.png in Resources */,
+				0284E0471D5A8D3500C26562 /* img-Product-AppleMac.png in Resources */,
+				0284E0051D5A7F9000C26562 /* img-companyLogo_Apple@2x.png in Resources */,
+				0284E0031D5A7F9000C26562 /* img-companyLogo_Apple.pdf in Resources */,
+				0284E0451D5A8D3500C26562 /* img-Product-AppleiPad.jpeg in Resources */,
+				0284E0441D5A8D3500C26562 /* img-Product-01@3x.png in Resources */,
+				0284E00C1D5A7F9000C26562 /* img-companyLogo_Tesla.png in Resources */,
 				0284DFBF1D5A270600C26562 /* Main.storyboard in Resources */,
+				0284E0101D5A7F9000C26562 /* img-companyLogo_Twitter.png in Resources */,
+				0284E04F1D5A8D3500C26562 /* img-Product-TwitterMoments.png in Resources */,
+				0284E0461D5A8D3500C26562 /* img-Product-AppleiPod Touch.png in Resources */,
+				0284E0491D5A8D3500C26562 /* img-Product-GoogleGmail.png in Resources */,
+				0284E00F1D5A7F9000C26562 /* img-companyLogo_Twitter.pdf in Resources */,
+				0284E0061D5A7F9000C26562 /* img-companyLogo_Apple@3x.png in Resources */,
+				0284E0021D5A7F9000C26562 /* Icon in Resources */,
+				0284E00B1D5A7F9000C26562 /* img-companyLogo_Tesla.pdf in Resources */,
+				0284E0481D5A8D3500C26562 /* img-Product-GoogleDocs.jpg in Resources */,
+				0284E0041D5A7F9000C26562 /* img-companyLogo_Apple.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

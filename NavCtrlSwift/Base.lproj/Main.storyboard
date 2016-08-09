@@ -28,6 +28,11 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l3f-nt-RPQ" id="FgM-ov-T1d">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nw1-SE-bjc">
+                                                    <rect key="frame" x="0.0" y="-1" width="37.5" height="37.5"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -66,16 +71,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="imN-7y-ZGD">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="imN-7y-ZGD">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="productCell" id="3KI-pa-XRn">
-                                        <rect key="frame" x="0.0" y="30" width="600" height="38"/>
+                                        <rect key="frame" x="0.0" y="30" width="560" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3KI-pa-XRn" id="eTq-AD-XrQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="37.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cR4-hZ-75c">
+                                                    <rect key="frame" x="0.0" y="-1" width="37.5" height="37.5"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -86,6 +96,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="imN-7y-ZGD" firstAttribute="leading" secondItem="UkK-XV-LaW" secondAttribute="leadingMargin" id="0RV-3Y-fdn"/>
+                            <constraint firstItem="imN-7y-ZGD" firstAttribute="top" secondItem="UkK-XV-LaW" secondAttribute="topMargin" id="2tq-n8-RRg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="imN-7y-ZGD" secondAttribute="trailing" id="5Ep-Mc-a20"/>
+                            <constraint firstItem="imN-7y-ZGD" firstAttribute="centerX" secondItem="UkK-XV-LaW" secondAttribute="centerX" id="9ig-MU-HPs"/>
+                            <constraint firstItem="imN-7y-ZGD" firstAttribute="centerY" secondItem="UkK-XV-LaW" secondAttribute="centerY" id="DTn-r1-TUG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="imN-7y-ZGD" secondAttribute="trailing" id="Wu4-nc-7MI"/>
+                            <constraint firstItem="Kcl-7a-ns4" firstAttribute="top" secondItem="imN-7y-ZGD" secondAttribute="bottom" id="rXe-UD-EEl"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="productTableView" destination="imN-7y-ZGD" id="nKc-Kl-dBy"/>

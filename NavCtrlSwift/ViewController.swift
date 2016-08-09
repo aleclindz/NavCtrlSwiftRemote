@@ -11,13 +11,14 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var companies: [String]!
+    var companyLogos: [String: UIImage]!
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        companies = ["Apple", "Google", "Tesla", "Facebook"]
+        setupData()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Edit",
@@ -40,7 +41,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-        cell.textLabel!.text = companies[indexPath.row]
+        let company = companies[indexPath.row]
+        cell.textLabel!.text = company
+        cell.imageView!.image = companyLogos[company]
         return cell
     }
     
@@ -70,6 +73,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         productVC!.title = title
 
         self.navigationController?.pushViewController(productVC!, animated: true)
+    }
+    
+    func setupData(){
+        
+        companies = ["Apple", "Google", "Twitter", "Tesla"]
+        
+        companyLogos = [String: UIImage]()
+        
+        for company in companies {
+            if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Company Logos/img-companyLogo_" + company + ".png") {
+                companyLogos.updateValue(imageToAdd, forKey: company)
+            }
+        }
     }
     
 }

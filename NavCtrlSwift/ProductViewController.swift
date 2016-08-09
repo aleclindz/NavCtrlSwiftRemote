@@ -13,6 +13,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var companyTitle: String!
     var products: [String]!
+    var productImages: [String: UIImage]!
     
     @IBOutlet var productTableView: UITableView!
     
@@ -28,16 +29,8 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
             action: "editButtonClicked"
         )
         
-        if companyTitle == "Apple" {
-            products = ["iPad", "iPod Touch", "iPhone"]
-        } else if companyTitle == "Google" {
-            products = ["Google Docs", "Google Sheets", "GMail"]
-        } else if companyTitle == "Facebook" {
-            products = ["Instagram", "Whatsapp", "Parse"]
-        } else if companyTitle == "Tesla" {
-            products = ["Model S", "Model X", "Model 3"]
-        }
-        
+        setupData()
+      
         self.productTableView.reloadData()
     }
     
@@ -55,7 +48,9 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "productCell")
-        cell.textLabel!.text = products[indexPath.row]
+        let product = products[indexPath.row]
+        cell.textLabel!.text = product
+        cell.imageView!.image = productImages[product]
         return cell
     }
     
@@ -69,6 +64,30 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
 
+    func setupData(){
+        
+        if companyTitle == "Apple" {
+            products = ["iPad", "iPod Touch", "Mac"]
+        } else if companyTitle == "Google" {
+            products = ["Docs", "Sheets", "Gmail"]
+        } else if companyTitle == "Twitter" {
+            products = ["Crashlytics", "Periscope", "Moments"]
+        } else if companyTitle == "Tesla" {
+            products = ["Model S", "Model X", "Model 3"]
+        }
+        
+        productImages = [String: UIImage]()
+        
+        for product in products {
+            if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Product Images/img-Product-" + companyTitle + product + ".jpeg") {
+                productImages.updateValue(imageToAdd, forKey: product)
+            } else if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Product Images/img-Product-" + companyTitle + product + ".png") {
+                productImages.updateValue(imageToAdd, forKey: product)
+            } else if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Product Images/img-Product-" + companyTitle + product + ".jpg") {
+                productImages.updateValue(imageToAdd, forKey: product)
+            }
+        }
+    }
 
     
 }
