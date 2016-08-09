@@ -28,10 +28,14 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
             action: "editButtonClicked"
         )
         
-        if companyTitle == "Apple mobile devices" {
+        if companyTitle == "Apple" {
             products = ["iPad", "iPod Touch", "iPhone"]
-        } else if companyTitle == "Samsung mobile devices" {
-            products = ["Galaxy S4", "Galaxy Note", "Galaxy Tab"]
+        } else if companyTitle == "Google" {
+            products = ["Google Docs", "Google Sheets", "GMail"]
+        } else if companyTitle == "Facebook" {
+            products = ["Instagram", "Whatsapp", "Parse"]
+        } else if companyTitle == "Tesla" {
+            products = ["Model S", "Model X", "Model 3"]
         }
         
         self.productTableView.reloadData()

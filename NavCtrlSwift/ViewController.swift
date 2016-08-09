@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        companies = ["Apple mobile devices", "Samsung mobile devices"]
+        companies = ["Apple", "Google", "Tesla", "Facebook"]
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Edit",
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             action: "editButtonClicked"
         )
 
-        self.title = "Mobile Device Makers"
+        self.title = "Tech Companies"
     }
 
     override func didReceiveMemoryWarning() {
