@@ -14,6 +14,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     var companyTitle: String!
     var products: [String]!
     var productImages: [String: UIImage]!
+    var productToSend: String!
     
     @IBOutlet var productTableView: UITableView!
     
@@ -40,9 +41,12 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
         if editingStyle == .Delete {
             products.removeAtIndex(indexPath.row)
             productTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            defaults.setValue(products, forKey: companyTitle)
         }
     }
     
@@ -66,15 +70,8 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func setupData(){
         
-        if companyTitle == "Apple" {
-            products = ["iPad", "iPod Touch", "Mac"]
-        } else if companyTitle == "Google" {
-            products = ["Docs", "Sheets", "Gmail"]
-        } else if companyTitle == "Twitter" {
-            products = ["Crashlytics", "Periscope", "Moments"]
-        } else if companyTitle == "Tesla" {
-            products = ["Model S", "Model X", "Model 3"]
-        }
+        let defaults = NSUserDefaults.standardUserDefaults()
+        products = defaults.arrayForKey(companyTitle) as! [String]
         
         productImages = [String: UIImage]()
         
@@ -88,6 +85,32 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
     }
+    
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let tempProduct = products[sourceIndexPath.row]
+        products.removeAtIndex(sourceIndexPath.row)
+        products.insert(tempProduct, atIndex: destinationIndexPath.row)
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        productToSend = products[indexPath.row]
+        performSegueWithIdentifier("segueToWebView", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToWebView" {
+            let destinationVC = segue.destinationViewController as! WebViewController
+            destinationVC.product = productToSend
+        }
+    }
+    
+    
+    
+
 
     
 }

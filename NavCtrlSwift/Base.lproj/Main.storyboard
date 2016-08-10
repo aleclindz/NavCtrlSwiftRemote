@@ -108,11 +108,30 @@
                     </view>
                     <connections>
                         <outlet property="productTableView" destination="imN-7y-ZGD" id="nKc-Kl-dBy"/>
+                        <segue destination="6p2-b4-5cH" kind="show" identifier="segueToWebView" id="oe4-5n-1AX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7EQ-eJ-nBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="361"/>
+            <point key="canvasLocation" x="1977" y="361"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="BX4-dI-kzh">
+            <objects>
+                <viewController id="6p2-b4-5cH" customClass="WebViewController" customModule="NavCtrlSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PvN-HE-VcP"/>
+                        <viewControllerLayoutGuide type="bottom" id="KYv-Ty-qA4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N2K-MN-dbE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6C-dJ-G76" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2724" y="361"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hrj-QD-KgR">
