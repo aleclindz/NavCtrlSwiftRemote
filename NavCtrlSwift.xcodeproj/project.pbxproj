@@ -49,6 +49,8 @@
 		0284E0541D5E321400C26562 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0531D5E321400C26562 /* Company.swift */; };
 		0284E0561D5E321D00C26562 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0551D5E321D00C26562 /* Product.swift */; };
 		0284E0581D5E5D9A00C26562 /* dataAccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0571D5E5D9A00C26562 /* dataAccessObject.swift */; };
+		0284E05A1D5E652800C26562 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0591D5E652800C26562 /* UIColorExtension.swift */; };
+		0284E05C1D5E739E00C26562 /* companyAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E05B1D5E739E00C26562 /* companyAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		0284E0531D5E321400C26562 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		0284E0551D5E321D00C26562 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0284E0571D5E5D9A00C26562 /* dataAccessObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataAccessObject.swift; sourceTree = "<group>"; };
+		0284E0591D5E652800C26562 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		0284E05B1D5E739E00C26562 /* companyAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = companyAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +134,10 @@
 			children = (
 				0284DFB91D5A270600C26562 /* AppDelegate.swift */,
 				0284DFBB1D5A270600C26562 /* ViewController.swift */,
+				0284E0591D5E652800C26562 /* UIColorExtension.swift */,
 				0284DFCB1D5A522300C26562 /* ProductViewController.swift */,
 				0284E0511D5B8D9A00C26562 /* WebViewController.swift */,
+				0284E05B1D5E739E00C26562 /* companyAddViewController.swift */,
 				0284E0531D5E321400C26562 /* Company.swift */,
 				0284E0551D5E321D00C26562 /* Product.swift */,
 				0284E0571D5E5D9A00C26562 /* dataAccessObject.swift */,
@@ -297,6 +303,8 @@
 				0284DFCC1D5A522300C26562 /* ProductViewController.swift in Sources */,
 				0284DFBC1D5A270600C26562 /* ViewController.swift in Sources */,
 				0284DFBA1D5A270600C26562 /* AppDelegate.swift in Sources */,
+				0284E05A1D5E652800C26562 /* UIColorExtension.swift in Sources */,
+				0284E05C1D5E739E00C26562 /* companyAddViewController.swift in Sources */,
 				0284E0581D5E5D9A00C26562 /* dataAccessObject.swift in Sources */,
 				0284E0541D5E321400C26562 /* Company.swift in Sources */,
 				0284E0521D5B8D9A00C26562 /* WebViewController.swift in Sources */,

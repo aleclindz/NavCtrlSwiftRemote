@@ -12,10 +12,10 @@ import UIKit
 class Company {
     var name: String!
     var image: UIImage?
-    var url: NSURL?
+    var ticker: String!
     var products: [Product]?
     
-    init(name: String, imageUrl: String?, companyUrl: String?){
+    init(name: String, imageUrl: String?, ticker: String?){
         self.name = name
         
         if let myUrl = NSURL(string: imageUrl!){
@@ -26,9 +26,7 @@ class Company {
             }
         }
         
-        if let url = NSURL(string: companyUrl!){
-            self.url = url
-        }
+        self.ticker = ticker
         
         self.products = []
     }

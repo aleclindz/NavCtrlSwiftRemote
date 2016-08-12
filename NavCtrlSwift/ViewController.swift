@@ -10,23 +10,32 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+// MARK: Declarations
+    
     var companies: [Company]!
     
     @IBOutlet weak var tableView: UITableView!
+
+// MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.companies = DataAccessObject.sharedDAO.companies
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Edit",
-            style: .Plain,
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .Edit,
             target: self,
-            action: "editButtonClicked"
+            action: "editButtonTapped"
         )
-
-        self.title = "Tech Companies"
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .Add,
+            target: self,
+            action: "addButtonTapped"
+        )
+        
+        self.title = "Stock Tracker"
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +43,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.companies = DataAccessObject.sharedDAO.companies
+        self.tableView.reloadData()
+    }
+    
+// MARK: TableView Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return companies.count
@@ -55,26 +70,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tempCompany = companies[sourceIndexPath.row]
         companies.removeAtIndex(sourceIndexPath.row)
         companies.insert(tempCompany, atIndex: destinationIndexPath.row)
+        DataAccessObject.sharedDAO.companies = self.companies
     }
-    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == .Delete {
             companies.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-    }
-    
-    func editButtonClicked() {
-        if self.tableView.editing {
-            self.tableView.editing = false
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "editButtonClicked")
-            self.tableView.reloadData()
-        } else {
-            self.tableView.editing = true
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "editButtonClicked")
-            self.tableView.reloadData()
+            DataAccessObject.sharedDAO.companies = self.companies
         }
     }
     
@@ -87,5 +91,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.navigationController?.pushViewController(productVC!, animated: true)
     }
+
+// MARK: Navigation Bar Button Methods
+    
+    func editButtonTapped() {
+        if self.tableView.editing {
+            self.tableView.editing = false
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "editButtonTapped")
+            self.tableView.reloadData()
+        } else {
+            self.tableView.editing = true
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "editButtonTapped")
+            self.tableView.reloadData()
+        }
+    }
+
+    func addButtonTapped() {
+        
+        let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addViewController") as? companyAddViewController
+        
+        self.navigationController?.pushViewController(addVC!, animated: true)
+    }
+    
+    
 }
 
