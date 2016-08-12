@@ -46,6 +46,8 @@
 		0284E04F1D5A8D3500C26562 /* img-Product-TwitterMoments.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0401D5A8D3500C26562 /* img-Product-TwitterMoments.png */; };
 		0284E0501D5A8D3500C26562 /* img-Product-TwitterPeriscope.png in Resources */ = {isa = PBXBuildFile; fileRef = 0284E0411D5A8D3500C26562 /* img-Product-TwitterPeriscope.png */; };
 		0284E0521D5B8D9A00C26562 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0511D5B8D9A00C26562 /* WebViewController.swift */; };
+		0284E0541D5E321400C26562 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0531D5E321400C26562 /* Company.swift */; };
+		0284E0561D5E321D00C26562 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0551D5E321D00C26562 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		0284E0401D5A8D3500C26562 /* img-Product-TwitterMoments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-TwitterMoments.png"; sourceTree = "<group>"; };
 		0284E0411D5A8D3500C26562 /* img-Product-TwitterPeriscope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-Product-TwitterPeriscope.png"; sourceTree = "<group>"; };
 		0284E0511D5B8D9A00C26562 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0284E0531D5E321400C26562 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		0284E0551D5E321D00C26562 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 				0284DFBB1D5A270600C26562 /* ViewController.swift */,
 				0284DFCB1D5A522300C26562 /* ProductViewController.swift */,
 				0284E0511D5B8D9A00C26562 /* WebViewController.swift */,
+				0284E0531D5E321400C26562 /* Company.swift */,
+				0284E0551D5E321D00C26562 /* Product.swift */,
 				0284DFBD1D5A270600C26562 /* Main.storyboard */,
 				0284DFC01D5A270600C26562 /* Assets.xcassets */,
 				0284E0321D5A8D3500C26562 /* Product Images */,
@@ -288,7 +294,9 @@
 				0284DFCC1D5A522300C26562 /* ProductViewController.swift in Sources */,
 				0284DFBC1D5A270600C26562 /* ViewController.swift in Sources */,
 				0284DFBA1D5A270600C26562 /* AppDelegate.swift in Sources */,
+				0284E0541D5E321400C26562 /* Company.swift in Sources */,
 				0284E0521D5B8D9A00C26562 /* WebViewController.swift in Sources */,
+				0284E0561D5E321D00C26562 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
