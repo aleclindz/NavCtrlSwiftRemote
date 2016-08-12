@@ -11,17 +11,18 @@ import UIKit
 
 class ProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var companyTitle: String!
-    var products: [String]!
-    var productImages: [String: UIImage]!
-    var productToSend: String!
+    var company: Company!
+    var products: [Product]!
+    var productToSend: Product!
     
     @IBOutlet var productTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        companyTitle = self.title
+        setupData()
+        
+        self.title = company.name + " Products"
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Edit",
@@ -29,9 +30,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
             target: self,
             action: "editButtonClicked"
         )
-        
-        setupData()
-      
+
         self.productTableView.reloadData()
     }
     
@@ -41,20 +40,17 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
         if editingStyle == .Delete {
             products.removeAtIndex(indexPath.row)
             productTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            defaults.setValue(products, forKey: companyTitle)
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "productCell")
         let product = products[indexPath.row]
-        cell.textLabel!.text = product
-        cell.imageView!.image = productImages[product]
+        cell.textLabel!.text = product.name
+        cell.imageView!.image = product.image
         return cell
     }
     
@@ -70,20 +66,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func setupData(){
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        products = defaults.arrayForKey(companyTitle) as! [String]
-        
-        productImages = [String: UIImage]()
-        
-        for product in products {
-            if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Product Images/img-Product-" + companyTitle + product + ".jpeg") {
-                productImages.updateValue(imageToAdd, forKey: product)
-            } else if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Product Images/img-Product-" + companyTitle + product + ".png") {
-                productImages.updateValue(imageToAdd, forKey: product)
-            } else if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Product Images/img-Product-" + companyTitle + product + ".jpg") {
-                productImages.updateValue(imageToAdd, forKey: product)
-            }
-        }
+        products = company.products
     }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {

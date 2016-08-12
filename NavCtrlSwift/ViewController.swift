@@ -10,8 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var companies: [String]!
-    var companyLogos: [String: UIImage]!
+    var companies: [Company]!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,7 +18,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 
         setupData()
-        setupDefaults()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Edit",
@@ -44,8 +42,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         let company = companies[indexPath.row]
-        cell.textLabel!.text = company
-        cell.imageView!.image = companyLogos[company]
+        cell.textLabel!.text = company.name
+        cell.imageView!.image = company.image
         return cell
     }
     
@@ -81,47 +79,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let title = companies[indexPath.row]
+        let company = companies[indexPath.row]
         
         let productVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProductViewController") as? ProductViewController
         
-        productVC!.title = title
-
+        productVC!.company = company
+        
         self.navigationController?.pushViewController(productVC!, animated: true)
     }
     
     func setupData(){
         
-        companies = ["Apple", "Google", "Twitter", "Tesla"]
+        let apple = Company(name: "Apple", imageUrl: "https://vignette2.wikia.nocookie.net/logopedia/images/2/26/Apple_2003_logo.png/revision/latest?cb=20121102224024", companyUrl: "https://www.apple.com" )
         
-        companyLogos = [String: UIImage]()
+        let iPad = Product(name: "iPad", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Apple_iPad_New_Logo_Thin_used_in_iPad_Air_Series.png", productUrl: "https://www.apple.com/ipad/")
         
-        for company in companies {
-            if let imageToAdd = UIImage(contentsOfFile: "/Users/alexanderlindsay/Documents/Programming/TurnToTech/NavCtrlSwift/Company Logos/img-companyLogo_" + company + ".png") {
-                companyLogos.updateValue(imageToAdd, forKey: company)
-            }
-        }
-    }
-    
-    func setupDefaults(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        var productArray: [String]!
-        for company in companies {
-            if company == "Apple" {
-                productArray = ["iPad", "iPod Touch", "Mac"]
-                defaults.setValue(productArray, forKey: company)
-            } else if company == "Google" {
-                productArray = ["Docs", "Sheets", "Gmail"]
-                defaults.setValue(productArray, forKey: company)
-            } else if company == "Twitter" {
-                productArray = ["Crashlytics", "Periscope", "Moments"]
-                defaults.setValue(productArray, forKey: company)
-            } else if company == "Tesla" {
-                productArray = ["Model S", "Model X", "Model 3"]
-                defaults.setValue(productArray, forKey: company)
-            }
-
-        }
+        apple.products?.append(iPad)
+        
+        let google = Company(name: "Google", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png", companyUrl: "https://www.google.com")
+        
+        let gmail = Product(name: "Gmail", imageUrl: "https://www.userlogos.org/files/logos/sjdvda/gmail5.png", productUrl: "https://gmail.com")
+        
+        google.products?.append(gmail)
+        
+        let twitter = Company(name: "Twitter", imageUrl: "https://www.seeklogo.net/wp-content/uploads/2014/12/twitter-logo-vector-download.jpg", companyUrl: "https://www.twitter.com")
+        
+        let moments = Product(name: "Moments", imageUrl: "https://socialmediaupdatesite.files.wordpress.com/2016/03/moments.png?w=512&h=512&crop=1", productUrl: "https://twitter.com/i/moments?lang=en")
+        
+        twitter.products?.append(moments)
+        
+        let tesla = Company(name: "Tesla", imageUrl: "https://thenewswheel.com/wp-content/uploads/2015/10/Tesla-T-logo.jpg", companyUrl: "https://www.tesla.com")
+        
+        let modelX = Product(name: "Model X", imageUrl: "https://tctechcrunch2011.files.wordpress.com/2015/07/model-x.png", productUrl: "https://www.tesla.com/modelx")
+        
+        tesla.products?.append(modelX)
+        
+        companies = [apple, google, twitter, tesla]
     }
     
 }
