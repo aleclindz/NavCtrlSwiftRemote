@@ -10,18 +10,25 @@ import Foundation
 import UIKit
 
 
-class addAndEditViewController: UIViewController {
+class addAndEditViewController: UIViewController, UITextFieldDelegate {
 
+// MARK: Declarations
+    
     var transitionType: String!
     var company: Company?
     var product: Product?
+    var keyboardIsShown: Bool?
     
     @IBOutlet weak var topTextField: underlinedTextField!
     @IBOutlet weak var middleTextField: underlinedTextField!
     @IBOutlet weak var bottomTextField: underlinedTextField!
+
+// MARK: Superview Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpNotifications()
         
         setUpDefaults()
         
@@ -29,6 +36,24 @@ class addAndEditViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelButtonTapped")
     }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        keyboardIsShown = true
+        self.view.frame.origin.y = -150
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        keyboardIsShown = false
+        self.view.frame.origin.y = 0
+    }
+    
+    func viewWasTapped(){
+        if keyboardIsShown == true {
+            self.view.endEditing(true)
+        }
+    }
+    
+// MARK: Button methods
     
     func saveButtonTapped(){
         
@@ -67,6 +92,8 @@ class addAndEditViewController: UIViewController {
     func cancelButtonTapped() {
         self.navigationController?.popViewControllerAnimated(true)
     }
+
+// MARK: Set-up methods
     
     func setUpDefaults(){
         if transitionType == "AddProduct" {
@@ -95,8 +122,17 @@ class addAndEditViewController: UIViewController {
         }
         
     }
-    
-    
+
+    func setUpNotifications(){
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil)
+
+        let tapNotification = UITapGestureRecognizer(target: self, action: "viewWasTapped")
+        tapNotification.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapNotification)
+    }
     
     
     
