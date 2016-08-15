@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
 
-// MARK: ViewDidLoad
+// MARK: Superview methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             target: self,
             action: "addButtonTapped"
         )
+        
+        tableView.allowsSelectionDuringEditing = true
         
         self.title = "Stock Tracker"
     }
@@ -85,11 +87,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let company = companies[indexPath.row]
         
-        let productVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProductViewController") as? ProductViewController
-        
-        productVC!.company = company
-        
-        self.navigationController?.pushViewController(productVC!, animated: true)
+        if self.tableView.editing == false {
+            let productVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProductViewController") as? ProductViewController
+            productVC!.company = company
+            self.navigationController?.pushViewController(productVC!, animated: true)
+            
+        } else if self.tableView.editing == true {
+            let editCompanyVC = self.storyboard?.instantiateViewControllerWithIdentifier("addAndEditViewController") as? addAndEditViewController!
+            editCompanyVC?.transitionType = "EditCompany"
+            editCompanyVC?.company = companies[indexPath.row]
+            self.navigationController?.pushViewController(editCompanyVC!, animated: true)
+        }
     }
 
 // MARK: Navigation Bar Button Methods
@@ -108,8 +116,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func addButtonTapped() {
         
-        let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addViewController") as? companyAddViewController
-        addVC?.addType = "Company"
+        let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addAndEditViewController") as? addAndEditViewController!
+        addVC?.transitionType = "AddCompany"
         self.navigationController?.pushViewController(addVC!, animated: true)
     }
     

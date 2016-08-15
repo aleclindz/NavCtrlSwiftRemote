@@ -11,6 +11,7 @@ import UIKit
 
 class Company {
     var name: String!
+    var imageUrl: String!
     var image: UIImage?
     var ticker: String!
     var products: [Product]?
@@ -27,7 +28,17 @@ class Company {
         }
         
         self.ticker = ticker
-        
+        self.imageUrl = imageUrl
         self.products = []
+    }
+    
+    func changeImageTo(newImageUrl: String){
+        if let myUrl = NSURL(string: newImageUrl){
+            if let myData = NSData(contentsOfURL: myUrl){
+                if let myImage = UIImage(data: myData){
+                    self.image = myImage
+                }
+            }
+        }
     }
 }

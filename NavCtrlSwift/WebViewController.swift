@@ -23,14 +23,15 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let productUrl = product.url {
-        webView.loadRequest(NSURLRequest(URL: productUrl))
-        webView.allowsBackForwardNavigationGestures = true
+            webView.loadRequest(NSURLRequest(URL: productUrl))
+            webView.allowsBackForwardNavigationGestures = true
+            
         } else {
             let defaultUrl = NSURL(string: "http://www.jillvanderwood.com/ttr/images/shop/unknown_product.jpg")
             webView.loadRequest(NSURLRequest(URL: defaultUrl!))
             webView.allowsBackForwardNavigationGestures = false
         }
     }
-    
 }

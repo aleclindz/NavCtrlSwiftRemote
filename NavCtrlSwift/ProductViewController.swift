@@ -11,12 +11,16 @@ import UIKit
 
 class ProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+// MARK: Declarations
+    
     var company: Company!
     var products: [Product]!
     var productToSend: Product!
     var editGestureRecognizer: UILongPressGestureRecognizer!
     
     @IBOutlet var productTableView: UITableView!
+    
+// MARK: Superview Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,8 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         editGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "editButtonClicked")
         editGestureRecognizer.minimumPressDuration = 2.0
         self.productTableView.addGestureRecognizer(editGestureRecognizer)
+        
+        self.productTableView.allowsSelectionDuringEditing = true
         
         self.title = company.name + " Products"
         
@@ -43,6 +49,8 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         self.productTableView.reloadData()
     }
+    
+// MARK: TableView Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
@@ -64,23 +72,6 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    func editButtonClicked() {
-        if self.productTableView.editing {
-            self.productTableView.editing = false
-            editGestureRecognizer.enabled = true
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addProduct")
-        } else {
-            editGestureRecognizer.enabled = false
-            self.productTableView.editing = true
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "editButtonClicked")
-        }
-    }
-
-    func setupData(){
-
-        products = company.products
-    }
-    
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -93,7 +84,24 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         productToSend = products[indexPath.row]
-        performSegueWithIdentifier("segueToWebView", sender: self)
+        
+        if self.productTableView.editing == false {
+            performSegueWithIdentifier("segueToWebView", sender: self)
+            
+        } else if self.productTableView.editing == true {
+            let editProductVC = self.storyboard?.instantiateViewControllerWithIdentifier("addAndEditViewController") as? addAndEditViewController!
+            editProductVC?.transitionType = "EditProduct"
+            editProductVC?.company = self.company
+            editProductVC?.product = productToSend
+            self.navigationController?.title = "Edit \(productToSend.name)"
+            self.navigationController?.pushViewController(editProductVC!, animated: true)
+        }
+    }
+
+// MARK: Transition Methods
+    
+    func setupData(){
+        products = company.products
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -102,11 +110,27 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
             destinationVC.product = productToSend
         }
     }
+
+// MARK: Button Methods
+    
+    func editButtonClicked() {
+        if self.productTableView.editing {
+            self.productTableView.editing = false
+            editGestureRecognizer.enabled = true
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addProduct")
+            
+        } else {
+            editGestureRecognizer.enabled = false
+            self.productTableView.editing = true
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "editButtonClicked")
+        }
+    }
     
     func addProduct(){
-        let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addViewController") as? companyAddViewController
-        addVC?.addType = "Product"
+        let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addAndEditViewController") as? addAndEditViewController!
+        addVC?.transitionType = "AddProduct"
         addVC?.company = self.company
+        
         self.navigationController?.pushViewController(addVC!, animated: true)
     }
     

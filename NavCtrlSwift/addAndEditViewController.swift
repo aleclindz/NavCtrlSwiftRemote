@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 
-class companyAddViewController: UIViewController {
+class addAndEditViewController: UIViewController {
 
-    var addType: String!
+    var transitionType: String!
     var company: Company?
+    var product: Product?
     
     @IBOutlet weak var topTextField: underlinedTextField!
     @IBOutlet weak var middleTextField: underlinedTextField!
@@ -31,14 +32,14 @@ class companyAddViewController: UIViewController {
     
     func saveButtonTapped(){
         
-        if addType == "Company" {
+        if transitionType == "AddCompany" {
             let companyName = topTextField.text
             let ticker = middleTextField.text
             let companyLogoUrl = bottomTextField.text
             let company = Company(name: companyName!, imageUrl: companyLogoUrl, ticker: ticker)
             DataAccessObject.sharedDAO.companies.append(company)
     
-        } else if addType == "Product" {
+        } else if transitionType == "AddProduct" {
             let productName = topTextField.text
             let productUrl = middleTextField.text
             let productImageUrl = bottomTextField.text
@@ -46,6 +47,18 @@ class companyAddViewController: UIViewController {
             if let companyIndex = DataAccessObject.sharedDAO.companies.indexOf({$0 === self.company}) {
                 DataAccessObject.sharedDAO.companies[companyIndex].products?.append(productToAdd)
             }
+            
+        } else if transitionType == "EditCompany" {
+            company!.name = topTextField.text
+            company!.ticker = middleTextField.text
+            company!.imageUrl = bottomTextField.text
+            company?.changeImageTo((company?.imageUrl)!)
+            
+        } else if transitionType == "EditProduct" {
+            product!.name = topTextField.text
+            product!.productUrl = middleTextField.text
+            product!.imageUrl = bottomTextField.text
+            product!.changeImageTo(product!.imageUrl!)
         }
         
         self.navigationController?.popViewControllerAnimated(true)
@@ -56,17 +69,31 @@ class companyAddViewController: UIViewController {
     }
     
     func setUpDefaults(){
-        if addType == "Product" {
+        if transitionType == "AddProduct" {
             topTextField.placeholder = "Product Name"
             middleTextField.placeholder = "Product URL"
             bottomTextField.placeholder = "Product Image URL"
-            self.navigationController?.title = "Add Product"
-        } else if addType == "Company" {
+            self.title = "Add Product"
+            
+        } else if transitionType == "AddCompany" {
             topTextField.placeholder = "Company Name"
             middleTextField.placeholder = "Ticker"
             bottomTextField.placeholder = "Company Logo URL"
-            self.navigationController?.title = "New Company"
+            self.title = "New Company"
+            
+        } else if transitionType == "EditCompany" {
+            topTextField.text = company?.name
+            middleTextField.text = company?.ticker
+            bottomTextField.text = company?.imageUrl
+            self.title = "Edit \(company!.name)"
+            
+        } else if transitionType == "EditProduct" {
+            topTextField.text = product?.name
+            middleTextField.text = product?.productUrl
+            bottomTextField.text = product?.imageUrl
+            self.title = "Edit \(product!.name)"
         }
+        
     }
     
     

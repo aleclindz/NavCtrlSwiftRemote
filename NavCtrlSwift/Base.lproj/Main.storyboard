@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1117" y="361"/>
         </scene>
-        <!--Company Add View Controller-->
+        <!--Add And Edit View Controller-->
         <scene sceneID="7C9-Pn-qQT">
             <objects>
-                <viewController storyboardIdentifier="addViewController" id="pws-JO-slP" customClass="companyAddViewController" customModule="NavCtrlSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addAndEditViewController" id="pws-JO-slP" customClass="addAndEditViewController" customModule="NavCtrlSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H84-Rk-jwe"/>
                         <viewControllerLayoutGuide type="bottom" id="mWU-A0-lwG"/>
