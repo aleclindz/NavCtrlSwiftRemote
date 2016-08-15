@@ -50,7 +50,9 @@
                             <constraint firstItem="9Hz-UV-5gj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="diA-Cz-LsT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aKK-KN-Guw"/>
+                    <navigationItem key="navigationItem" id="aKK-KN-Guw">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Cyd-ze-hcN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9Hz-UV-5gj" id="Lf2-pF-U7c"/>
                     </connections>
@@ -71,39 +73,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5R4-DX-Mpz">
-                                <rect key="frame" x="42" y="209" width="515" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5R4-DX-Mpz" customClass="underlinedTextField" customModule="NavCtrlSwift" customModuleProvider="target">
+                                <rect key="frame" x="42" y="213" width="515" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="7P4-71-77T"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Stock ticker" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXD-jr-5TS">
-                                <rect key="frame" x="42" y="285" width="515" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company logo URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sTq-cc-L9X" customClass="underlinedTextField" customModule="NavCtrlSwift" customModuleProvider="target">
+                                <rect key="frame" x="42" y="353" width="515" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="VKk-9M-gS2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company logo URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sTq-cc-L9X">
-                                <rect key="frame" x="42" y="366" width="515" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Stock ticker" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXD-jr-5TS" customClass="underlinedTextField" customModule="NavCtrlSwift" customModuleProvider="target">
+                                <rect key="frame" x="42" y="283" width="515" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="kEa-cw-nTt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FXD-jr-5TS" firstAttribute="leading" secondItem="JeM-X8-kdH" secondAttribute="leadingMargin" constant="22" id="6Ld-nc-RnR"/>
-                            <constraint firstItem="sTq-cc-L9X" firstAttribute="top" secondItem="FXD-jr-5TS" secondAttribute="bottom" constant="51" id="8Jr-QZ-7d1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sTq-cc-L9X" secondAttribute="trailing" constant="23" id="9i9-yT-iDL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5R4-DX-Mpz" secondAttribute="trailing" constant="23" id="LyP-NF-Gud"/>
-                            <constraint firstItem="sTq-cc-L9X" firstAttribute="leading" secondItem="JeM-X8-kdH" secondAttribute="leadingMargin" constant="22" id="Net-Oz-k6r"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FXD-jr-5TS" secondAttribute="trailing" constant="23" id="YyP-3A-230"/>
-                            <constraint firstItem="FXD-jr-5TS" firstAttribute="centerY" secondItem="JeM-X8-kdH" secondAttribute="centerY" id="aHt-bk-idV"/>
-                            <constraint firstItem="FXD-jr-5TS" firstAttribute="top" secondItem="5R4-DX-Mpz" secondAttribute="bottom" constant="46" id="vR9-iE-1gO"/>
-                            <constraint firstItem="5R4-DX-Mpz" firstAttribute="leading" secondItem="JeM-X8-kdH" secondAttribute="leadingMargin" constant="22" id="vRA-PL-1Zq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FXD-jr-5TS" secondAttribute="trailing" constant="23" id="0a6-lw-CJC"/>
+                            <constraint firstItem="FXD-jr-5TS" firstAttribute="leading" secondItem="JeM-X8-kdH" secondAttribute="leadingMargin" constant="22" id="F4v-vz-hSa"/>
+                            <constraint firstItem="sTq-cc-L9X" firstAttribute="leading" secondItem="JeM-X8-kdH" secondAttribute="leadingMargin" constant="22" id="JLi-5H-VLW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5R4-DX-Mpz" secondAttribute="trailing" constant="23" id="N7h-ZX-n3O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sTq-cc-L9X" secondAttribute="trailing" constant="23" id="Sv2-PI-kdW"/>
+                            <constraint firstItem="5R4-DX-Mpz" firstAttribute="leading" secondItem="JeM-X8-kdH" secondAttribute="leadingMargin" constant="22" id="VX8-Ea-asa"/>
+                            <constraint firstItem="FXD-jr-5TS" firstAttribute="top" secondItem="5R4-DX-Mpz" secondAttribute="bottom" constant="37" id="nV9-Go-gQ1"/>
+                            <constraint firstItem="sTq-cc-L9X" firstAttribute="top" secondItem="FXD-jr-5TS" secondAttribute="bottom" constant="37" id="qUA-FH-eoj"/>
+                            <constraint firstItem="FXD-jr-5TS" firstAttribute="centerY" secondItem="JeM-X8-kdH" secondAttribute="centerY" id="ruN-Bh-QMZ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomTextField" destination="sTq-cc-L9X" id="TVF-oe-ZEP"/>
-                        <outlet property="middleTextField" destination="FXD-jr-5TS" id="6mP-IG-A52"/>
-                        <outlet property="topTextField" destination="5R4-DX-Mpz" id="Mfa-uo-d9L"/>
+                        <outlet property="bottomTextField" destination="sTq-cc-L9X" id="DUv-lJ-iLV"/>
+                        <outlet property="middleTextField" destination="FXD-jr-5TS" id="ZSh-SL-8n7"/>
+                        <outlet property="topTextField" destination="5R4-DX-Mpz" id="9mY-TY-l9j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyr-1S-VL3" userLabel="First Responder" sceneMemberID="firstResponder"/>

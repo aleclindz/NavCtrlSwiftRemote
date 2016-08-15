@@ -14,6 +14,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     var company: Company!
     var products: [Product]!
     var productToSend: Product!
+    var editGestureRecognizer: UILongPressGestureRecognizer!
     
     @IBOutlet var productTableView: UITableView!
     
@@ -22,15 +23,24 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         
         setupData()
         
+        editGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "editButtonClicked")
+        editGestureRecognizer.minimumPressDuration = 2.0
+        self.productTableView.addGestureRecognizer(editGestureRecognizer)
+        
         self.title = company.name + " Products"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Edit",
-            style: .Plain,
-            target: self,
-            action: "editButtonClicked"
-        )
-
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addProduct")
+        
+        self.productTableView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let companyIndex = DataAccessObject.sharedDAO.companies.indexOf({$0 === self.company}) {
+            self.products = DataAccessObject.sharedDAO.companies[companyIndex].products!
+            for product in products {
+                print("\(product.name)")
+            }
+        }
         self.productTableView.reloadData()
     }
     
@@ -57,15 +67,17 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     func editButtonClicked() {
         if self.productTableView.editing {
             self.productTableView.editing = false
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "editButtonClicked")
+            editGestureRecognizer.enabled = true
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addProduct")
         } else {
+            editGestureRecognizer.enabled = false
             self.productTableView.editing = true
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "editButtonClicked")
         }
     }
 
     func setupData(){
-        
+
         products = company.products
     }
     
@@ -91,7 +103,12 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    
+    func addProduct(){
+        let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addViewController") as? companyAddViewController
+        addVC?.addType = "Product"
+        addVC?.company = self.company
+        self.navigationController?.pushViewController(addVC!, animated: true)
+    }
     
 
 

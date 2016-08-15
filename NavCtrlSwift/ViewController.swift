@@ -109,7 +109,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func addButtonTapped() {
         
         let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addViewController") as? companyAddViewController
-        
+        addVC?.addType = "Company"
         self.navigationController?.pushViewController(addVC!, animated: true)
     }
     
