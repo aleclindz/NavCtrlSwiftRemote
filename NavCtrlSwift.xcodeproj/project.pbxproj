@@ -52,6 +52,8 @@
 		0284E0581D5E5D9A00C26562 /* dataAccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0571D5E5D9A00C26562 /* dataAccessObject.swift */; };
 		0284E05A1D5E652800C26562 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E0591D5E652800C26562 /* UIColorExtension.swift */; };
 		0284E05C1D5E739E00C26562 /* addAndEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284E05B1D5E739E00C26562 /* addAndEditViewController.swift */; };
+		02BDD4F01D63A78900B7262F /* companyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BDD4EF1D63A78900B7262F /* companyTableViewCell.xib */; };
+		02BDD4F21D63A7C300B7262F /* companyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDD4F11D63A7C300B7262F /* companyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		0284E0571D5E5D9A00C26562 /* dataAccessObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataAccessObject.swift; sourceTree = "<group>"; };
 		0284E0591D5E652800C26562 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		0284E05B1D5E739E00C26562 /* addAndEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addAndEditViewController.swift; sourceTree = "<group>"; };
+		02BDD4EF1D63A78900B7262F /* companyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = companyTableViewCell.xib; path = ../companyTableViewCell.xib; sourceTree = "<group>"; };
+		02BDD4F11D63A7C300B7262F /* companyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = companyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 				0284E0531D5E321400C26562 /* Company.swift */,
 				0284E0551D5E321D00C26562 /* Product.swift */,
 				0284E0571D5E5D9A00C26562 /* dataAccessObject.swift */,
+				02BDD4EF1D63A78900B7262F /* companyTableViewCell.xib */,
+				02BDD4F11D63A7C300B7262F /* companyCell.swift */,
 				0284DFBD1D5A270600C26562 /* Main.storyboard */,
 				0284DFC01D5A270600C26562 /* Assets.xcassets */,
 				0284E0321D5A8D3500C26562 /* Product Images */,
@@ -289,6 +295,7 @@
 				0284E0491D5A8D3500C26562 /* img-Product-GoogleGmail.png in Resources */,
 				0284E00F1D5A7F9000C26562 /* img-companyLogo_Twitter.pdf in Resources */,
 				0284E0061D5A7F9000C26562 /* img-companyLogo_Apple@3x.png in Resources */,
+				02BDD4F01D63A78900B7262F /* companyTableViewCell.xib in Resources */,
 				0284E0021D5A7F9000C26562 /* Icon in Resources */,
 				0284E00B1D5A7F9000C26562 /* img-companyLogo_Tesla.pdf in Resources */,
 				0284E0481D5A8D3500C26562 /* img-Product-GoogleDocs.jpg in Resources */,
@@ -310,6 +317,7 @@
 				0284E05A1D5E652800C26562 /* UIColorExtension.swift in Sources */,
 				0284E05C1D5E739E00C26562 /* addAndEditViewController.swift in Sources */,
 				0284E0581D5E5D9A00C26562 /* dataAccessObject.swift in Sources */,
+				02BDD4F21D63A7C300B7262F /* companyCell.swift in Sources */,
 				0284E0541D5E321400C26562 /* Company.swift in Sources */,
 				0284E0521D5B8D9A00C26562 /* WebViewController.swift in Sources */,
 				0284E0561D5E321D00C26562 /* Product.swift in Sources */,

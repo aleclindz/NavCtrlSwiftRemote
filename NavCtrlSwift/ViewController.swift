@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.companies = DataAccessObject.sharedDAO.companies
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
