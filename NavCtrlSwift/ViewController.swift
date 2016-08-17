@@ -15,25 +15,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var companies: [Company]!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var instructionsLabel: UILabel!
+    
+    @IBOutlet weak var addCompanyButton: UIButton!
 
 // MARK: Superview methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.companies = DataAccessObject.sharedDAO.companies
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .Edit,
-            target: self,
-            action: "editButtonTapped"
-        )
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .Add,
             target: self,
             action: "addButtonTapped"
         )
+        
+        setUpScreen()
+        
+        tableView.registerNib(UINib(nibName: "companyCell", bundle: nil), forCellReuseIdentifier: "companyCell")
         
         tableView.allowsSelectionDuringEditing = true
         
@@ -46,8 +46,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.companies = DataAccessObject.sharedDAO.companies
+        setUpScreen()
         self.tableView.reloadData()
+    }
+    
+// MARK: Setup methods
+    
+    func setUpScreen(){
+
+        companies = DataAccessObject.sharedDAO.companies
+        let currentCompaniesCount = companies.count
+        
+        // If there are more than 0 companies in array, display the edit button. Otherwise don't.
+        if currentCompaniesCount > 0 {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+                barButtonSystemItem: .Edit,
+                target: self,
+                action: "editButtonTapped")
+        } else {
+            self.navigationItem.leftBarButtonItem = .None
+        }
+        
+        // If there are currently 0 companies and there were previously more, hide the tableview and show instructions
+        if currentCompaniesCount == 0 {
+            hideTableView()
+            
+        // Otherwise, if the user actually added a company when there were previously none, unhide the tableview and hide instructions
+        } else if currentCompaniesCount > 0 && self.tableView.hidden == true {
+            reverseHiddenViews()
+        }
     }
     
 // MARK: TableView Methods
@@ -57,11 +84,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+   
+        let cell:companyCell = (tableView.dequeueReusableCellWithIdentifier("companyCell", forIndexPath: indexPath) as? companyCell)!
         let company = companies[indexPath.row]
-        cell.textLabel!.text = company.name
-        cell.imageView!.image = company.image
+        
+        cell.mainLabel.text = company.name + " (\(company.ticker))"
+        cell.logoImageView.image = company.image
+        cell.logoImageView.contentMode = .ScaleAspectFit
+        cell.logoImageView.layer.masksToBounds = true
+        cell.logoImageView.autoresizingMask = .None
+        cell.logoImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.logoImageView.layer.borderWidth = 1
+        
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
     }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -81,6 +120,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             companies.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             DataAccessObject.sharedDAO.companies = self.companies
+            setUpScreen()
         }
     }
     
@@ -121,6 +161,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(addVC!, animated: true)
     }
     
+// MARK: Accessory methods
     
+    func reverseHiddenViews(){
+        self.tableView.hidden = !self.tableView.hidden
+        self.addCompanyButton.hidden = !self.addCompanyButton.hidden
+        self.instructionsLabel.hidden = !self.instructionsLabel.hidden
+    }
+    
+    func hideTableView(){
+        self.tableView.hidden = true
+        self.addCompanyButton.hidden = false
+        self.instructionsLabel.hidden = false
+    }
+    
+    @IBAction func blankAddButtonTapped(){
+        addButtonTapped()
+    }
 }
 

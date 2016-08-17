@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		021693641D621E1300177FD3 /* underlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021693631D621E1300177FD3 /* underlinedTextField.swift */; };
+		021693681D62728100177FD3 /* companyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021693671D62728100177FD3 /* companyCell.xib */; };
+		0216936A1D62738A00177FD3 /* companyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021693691D62738A00177FD3 /* companyCell.swift */; };
 		0284DFBA1D5A270600C26562 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284DFB91D5A270600C26562 /* AppDelegate.swift */; };
 		0284DFBC1D5A270600C26562 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0284DFBB1D5A270600C26562 /* ViewController.swift */; };
 		0284DFBF1D5A270600C26562 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0284DFBD1D5A270600C26562 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		021693631D621E1300177FD3 /* underlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underlinedTextField.swift; sourceTree = "<group>"; };
+		021693671D62728100177FD3 /* companyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = companyCell.xib; sourceTree = "<group>"; };
+		021693691D62738A00177FD3 /* companyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = companyCell.swift; sourceTree = "<group>"; };
 		0284DFB61D5A270600C26562 /* NavCtrlSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavCtrlSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0284DFB91D5A270600C26562 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0284DFBB1D5A270600C26562 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,11 +144,13 @@
 				0284DFCB1D5A522300C26562 /* ProductViewController.swift */,
 				0284E0511D5B8D9A00C26562 /* WebViewController.swift */,
 				0284E05B1D5E739E00C26562 /* addAndEditViewController.swift */,
+				021693691D62738A00177FD3 /* companyCell.swift */,
 				021693631D621E1300177FD3 /* underlinedTextField.swift */,
 				0284E0531D5E321400C26562 /* Company.swift */,
 				0284E0551D5E321D00C26562 /* Product.swift */,
 				0284E0571D5E5D9A00C26562 /* dataAccessObject.swift */,
 				0284DFBD1D5A270600C26562 /* Main.storyboard */,
+				021693671D62728100177FD3 /* companyCell.xib */,
 				0284DFC01D5A270600C26562 /* Assets.xcassets */,
 				0284E0321D5A8D3500C26562 /* Product Images */,
 				0284DFF01D5A7F9000C26562 /* Company Logos */,
@@ -285,6 +291,7 @@
 				0284DFBF1D5A270600C26562 /* Main.storyboard in Resources */,
 				0284E0101D5A7F9000C26562 /* img-companyLogo_Twitter.png in Resources */,
 				0284E04F1D5A8D3500C26562 /* img-Product-TwitterMoments.png in Resources */,
+				021693681D62728100177FD3 /* companyCell.xib in Resources */,
 				0284E0461D5A8D3500C26562 /* img-Product-AppleiPod Touch.png in Resources */,
 				0284E0491D5A8D3500C26562 /* img-Product-GoogleGmail.png in Resources */,
 				0284E00F1D5A7F9000C26562 /* img-companyLogo_Twitter.pdf in Resources */,
@@ -310,6 +317,7 @@
 				0284E05A1D5E652800C26562 /* UIColorExtension.swift in Sources */,
 				0284E05C1D5E739E00C26562 /* addAndEditViewController.swift in Sources */,
 				0284E0581D5E5D9A00C26562 /* dataAccessObject.swift in Sources */,
+				0216936A1D62738A00177FD3 /* companyCell.swift in Sources */,
 				0284E0541D5E321400C26562 /* Company.swift in Sources */,
 				0284E0521D5B8D9A00C26562 /* WebViewController.swift in Sources */,
 				0284E0561D5E321D00C26562 /* Product.swift in Sources */,

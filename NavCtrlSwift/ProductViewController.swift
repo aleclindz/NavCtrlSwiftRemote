@@ -19,6 +19,8 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     var editGestureRecognizer: UILongPressGestureRecognizer!
     
     @IBOutlet var productTableView: UITableView!
+    @IBOutlet weak var companyImageView: UIImageView!
+    @IBOutlet weak var companyNameLabel: UILabel!
     
 // MARK: Superview Methods
     
@@ -82,12 +84,14 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         products.insert(tempProduct, atIndex: destinationIndexPath.row)
     }
     
+    // If the product is not in editing mode, transition to the web view.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         productToSend = products[indexPath.row]
         
         if self.productTableView.editing == false {
             performSegueWithIdentifier("segueToWebView", sender: self)
-            
+        
+        // If the product is in the editing mode, transition to the edit view controller.
         } else if self.productTableView.editing == true {
             let editProductVC = self.storyboard?.instantiateViewControllerWithIdentifier("addAndEditViewController") as? addAndEditViewController!
             editProductVC?.transitionType = "EditProduct"
@@ -100,10 +104,14 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
 
 // MARK: Transition Methods
     
+    // Load the products into the tableview and the company's image and name / ticker into the label.
     func setupData(){
         products = company.products
+        companyImageView.image = company.image
+        companyNameLabel.text = company.name + " (" + company.ticker + ")"
     }
     
+    // Prepare for the segue to the web view.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToWebView" {
             let destinationVC = segue.destinationViewController as! WebViewController
@@ -113,12 +121,14 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
 
 // MARK: Button Methods
     
+    // If the tableview is in edit mode already, turn edit mode off and redisplay the add target button.
     func editButtonClicked() {
         if self.productTableView.editing {
             self.productTableView.editing = false
             editGestureRecognizer.enabled = true
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addProduct")
-            
+          
+        //If the tableview isn't in edit mode already, enable editing mode, change the 'add' button to a 'done' button and remove the gesture recognizer.
         } else {
             editGestureRecognizer.enabled = false
             self.productTableView.editing = true
@@ -126,6 +136,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    // Method to add products.  Instantiate the addAndEditViewController with the correct type and set the company to self.
     func addProduct(){
         let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addAndEditViewController") as? addAndEditViewController!
         addVC?.transitionType = "AddProduct"
