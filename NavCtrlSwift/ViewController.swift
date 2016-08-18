@@ -68,13 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         // If there are currently 0 companies and there were previously more, hide the tableview and show instructions
-        if currentCompaniesCount == 0 {
-            hideTableView()
-            
-        // Otherwise, if the user actually added a company when there were previously none, unhide the tableview and hide instructions
-        } else if currentCompaniesCount > 0 && self.tableView.hidden == true {
-            reverseHiddenViews()
-        }
+        setTableViewHiddenStatus()
     }
     
 // MARK: TableView Methods
@@ -163,16 +157,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 // MARK: Accessory methods
     
-    func reverseHiddenViews(){
-        self.tableView.hidden = !self.tableView.hidden
-        self.addCompanyButton.hidden = !self.addCompanyButton.hidden
-        self.instructionsLabel.hidden = !self.instructionsLabel.hidden
-    }
-    
-    func hideTableView(){
-        self.tableView.hidden = true
-        self.addCompanyButton.hidden = false
-        self.instructionsLabel.hidden = false
+    func setTableViewHiddenStatus(){
+        
+        if companies.count == 0 {
+            self.tableView.hidden = true
+            self.addCompanyButton.hidden = false
+            self.instructionsLabel.hidden = false
+        } else {
+            self.tableView.hidden = false
+            self.addCompanyButton.hidden = true
+            self.instructionsLabel.hidden = true
+        }
     }
     
     @IBAction func blankAddButtonTapped(){

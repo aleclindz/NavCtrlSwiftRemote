@@ -31,6 +31,8 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         
         setupData()
         
+        productTableView.registerNib(UINib(nibName: "companyCell", bundle: nil), forCellReuseIdentifier: "companyCell")
+        
         editGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "editButtonClicked")
         editGestureRecognizer.minimumPressDuration = 2.0
         self.productTableView.addGestureRecognizer(editGestureRecognizer)
@@ -73,10 +75,19 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "productCell")
+        
+        let cell:companyCell = (tableView.dequeueReusableCellWithIdentifier("companyCell", forIndexPath: indexPath) as? companyCell)!
+        
         let product = products[indexPath.row]
-        cell.textLabel!.text = product.name
-        cell.imageView!.image = product.image
+        
+        cell.mainLabel.text = product.name
+        cell.logoImageView.image = product.image
+        cell.logoImageView.contentMode = .ScaleAspectFit
+        cell.logoImageView.layer.masksToBounds = true
+        cell.logoImageView.autoresizingMask = .None
+        cell.logoImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.logoImageView.layer.borderWidth = 1
+
         return cell
     }
     
@@ -88,6 +99,10 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         let tempProduct = products[sourceIndexPath.row]
         products.removeAtIndex(sourceIndexPath.row)
         products.insert(tempProduct, atIndex: destinationIndexPath.row)
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
     }
     
     // If the product is not in editing mode, transition to the web view.
