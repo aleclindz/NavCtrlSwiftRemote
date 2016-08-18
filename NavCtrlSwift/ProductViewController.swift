@@ -21,6 +21,8 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var productTableView: UITableView!
     @IBOutlet weak var companyImageView: UIImageView!
     @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var addProductButton: UIButton!
     
 // MARK: Superview Methods
     
@@ -50,6 +52,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         self.productTableView.reloadData()
+        checkScreen()
     }
     
 // MARK: TableView Methods
@@ -61,8 +64,11 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == .Delete {
+            let companyIndex = DataAccessObject.sharedDAO.companies.indexOf({$0 === self.company})
             products.removeAtIndex(indexPath.row)
+            DataAccessObject.sharedDAO.companies[companyIndex!].products?.removeAtIndex(indexPath.row)
             productTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            checkScreen()
         }
     }
     
@@ -109,6 +115,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         products = company.products
         companyImageView.image = company.image
         companyNameLabel.text = company.name + " (" + company.ticker + ")"
+        checkScreen()
     }
     
     // Prepare for the segue to the web view.
@@ -116,6 +123,19 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         if segue.identifier == "segueToWebView" {
             let destinationVC = segue.destinationViewController as! WebViewController
             destinationVC.product = productToSend
+        }
+    }
+    
+    // Method to check if the products array is empty.  If it is, hide the tableview and show the instructions.
+    func checkScreen(){
+        if products.count == 0 {
+            productTableView.hidden = true
+            instructionsLabel.hidden = false
+            addProductButton.hidden = false
+        } else {
+            productTableView.hidden = false
+            instructionsLabel.hidden = true
+            addProductButton.hidden = true
         }
     }
 
@@ -136,6 +156,10 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    @IBAction func addProductButtonTUOd(sender: AnyObject) {
+        addProduct()
+    }
+    
     // Method to add products.  Instantiate the addAndEditViewController with the correct type and set the company to self.
     func addProduct(){
         let addVC = self.storyboard?.instantiateViewControllerWithIdentifier("addAndEditViewController") as? addAndEditViewController!
@@ -144,6 +168,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationController?.pushViewController(addVC!, animated: true)
     }
+    
     
 
 
