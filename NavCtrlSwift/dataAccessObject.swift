@@ -13,7 +13,7 @@ class DataAccessObject {
     
     var companies: [Company]!
     
-    let apple = Company(name: "Apple", imageUrl: "https://vignette2.wikia.nocookie.net/logopedia/images/2/26/Apple_2003_logo.png/revision/latest?cb=20121102224024", ticker: "APPL" )
+    let apple = Company(name: "Apple", imageUrl: "https://vignette2.wikia.nocookie.net/logopedia/images/2/26/Apple_2003_logo.png/revision/latest?cb=20121102224024", ticker: "AAPL" )
     
     let iPad = Product(name: "iPad", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Apple_iPad_New_Logo_Thin_used_in_iPad_Air_Series.png", productUrl: "https://www.apple.com/ipad/")
     
